@@ -1,0 +1,14 @@
+.popup__content_name_approve {
+  padding: 60px 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (max-width: 568px) {
+  .popup__content_name_approve {
+    max-width: 282px;
+    padding: 50px 18px;
+  }
+}

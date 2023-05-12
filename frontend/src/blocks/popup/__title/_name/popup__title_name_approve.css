@@ -1,0 +1,11 @@
+.popup__title_name_approve{
+  margin: 0;
+  text-align: center;
+}
+
+@media screen and (max-width: 568px) {
+  .popup__title_name_approve {
+    font-size: 20px;
+    line-height: 1.22;
+  }
+}

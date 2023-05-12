@@ -1,0 +1,11 @@
+.register__submit-button_type_inactive {
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, .2);
+  border-radius: 2px;
+  color: rgba(0, 0, 0, .2);
+  cursor: auto;
+}
+
+.register__submit-button_type_inactive:hover {
+  background: transparent;
+}

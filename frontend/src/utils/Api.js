@@ -13,7 +13,8 @@ class Api {
 
   getProfile() {
     return fetch(`${this._baseUrl}/users/me`, {
-      headers: this._headers
+      headers: this._headers,
+      // credentials: 'include'
     })
       .then(res => this._getResponseData(res))
   }
@@ -84,9 +85,8 @@ class Api {
 }
 
 const api = new Api({
-  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-59',
+  baseUrl: 'https://api.mesto.alisa.nomoredomains.monster',
   headers: {
-    authorization: 'b91add11-33ee-4087-8698-f24340903f03',
     'Content-Type': 'application/json'
   }
 });

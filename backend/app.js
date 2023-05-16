@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
+const cors = require('cors');
 const { errors } = require('celebrate');
 const router = require('./routes/index');
 const { handleErrors } = require('./errors/erorrs');
@@ -9,6 +10,8 @@ const { requestLogger, errorLogger } = require('./middlewares/logger');
 const { DocumentNotFoundError } = mongoose.Error;
 const { PORT = 3000 } = process.env;
 const app = express();
+
+app.use(cors({ origin: 'https://api.mesto.alisa.nomoredomains.monster' }));
 
 app.use(cookieParser());
 app.use(express.json());

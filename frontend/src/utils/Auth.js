@@ -7,7 +7,7 @@ function getResponse(res) {
   return res.json();
 }
 
-export const BASE_URL = 'https://auth.nomoreparties.co';
+export const BASE_URL = 'https://api.mesto.alisa.nomoredomains.monster';
 
 export const register = (email, password) => {
   return fetch(`${BASE_URL}/signup`, {

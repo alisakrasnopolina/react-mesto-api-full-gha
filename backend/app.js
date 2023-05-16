@@ -21,7 +21,16 @@ mongoose.connect('mongodb://127.0.0.1:27017/mestodb', {
   // useFindAndModify: false,
 });
 
-app.use(cors({ origin: 'https://api.mesto.alisa.nomoredomains.monster' }));
+app.use(
+  cors({
+    origin: 'https://api.mesto.alisa.nomoredomains.monster',
+    methods: 'GET, HEAD, PUT, PATCH, POST, DELETE',
+    allowedHeaders: ['Content-type', 'Authorization'],
+    credentials: true,
+    preflightContinue: false,
+    optionsSuccessStatus: 204,
+  }),
+);
 
 app.use(requestLogger);
 

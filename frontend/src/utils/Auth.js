@@ -12,6 +12,7 @@ export const BASE_URL = 'https://api.mesto.alisa.nomoredomains.monster';
 export const register = (email, password) => {
   return fetch(`${BASE_URL}/signup`, {
     method: 'POST',
+    credentials: 'include',
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json'
@@ -31,6 +32,7 @@ export const register = (email, password) => {
 export const authorization = (email, password) => {
   return fetch(`${BASE_URL}/signin`, {
     method: 'POST',
+    credentials: 'include',
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json'
@@ -50,10 +52,11 @@ export const authorization = (email, password) => {
 export const getContent = (token) => {
   return fetch(`${BASE_URL}/users/me`, {
     method: 'GET',
+    credentials: 'include',
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`,
+      // 'Authorization': `Bearer ${token}`,
     }
   })
   .then((res) => getResponse(res))

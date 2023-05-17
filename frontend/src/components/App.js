@@ -119,9 +119,9 @@ function App(props) {
   }
 
   const tokenCheck = () => {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem('Authorized');
     if (token) {
-      Auth.getContent(token)
+      Auth.getContent()
         .then((res) => {
           if (res) {
             setUserEmail(res.data)
@@ -134,7 +134,7 @@ function App(props) {
    } 
 
   function handleSignOut(){
-    localStorage.removeItem('token');
+    localStorage.removeItem('Authorized');
     setLoggedIn(false);
     navigate("/sign-in", {replace: true});
   }

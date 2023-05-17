@@ -5,7 +5,7 @@ module.exports = (req, res, next) => {
   const { jwt } = req.cookies;
 
   if (!jwt) {
-    return next(new UnauthorizedError('Необходима авторизация')); // next??, точно нужен return
+    return next(new UnauthorizedError('Необходима авторизация'));
   }
 
   let payload;

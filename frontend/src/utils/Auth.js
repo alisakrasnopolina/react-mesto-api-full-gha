@@ -44,12 +44,12 @@ export const authorization = (email, password) => {
   })
   .then((res) => getResponse(res))
   .then((data) => {
-    localStorage.setItem('token', data.token);
+    localStorage.setItem('Authorized', 'true');
     return data;
   })
 }; 
 
-export const getContent = (token) => {
+export const getContent = () => {
   return fetch(`${BASE_URL}/users/me`, {
     method: 'GET',
     credentials: 'include',

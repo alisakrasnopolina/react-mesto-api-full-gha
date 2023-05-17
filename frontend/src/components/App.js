@@ -150,15 +150,15 @@ function App(props) {
   function handleLogin(email, password) {
     Auth.authorization(email, password)
       .then((data) => {
-        if (data.token){
-          const userData = {
-            email: email
-          }
-          setUserEmail(userData)
-          setLoggedIn(true);
-          navigate('/', {replace: true});
+        console.log(data, 'wtf');
+        const userData = {
+          email: email
         }
-      })
+        setUserEmail(userData)
+        setLoggedIn(true);
+        navigate('/', {replace: true});
+        }
+      )
       .catch(err => {
         console.log(err)
         setInfoTooltip(true);

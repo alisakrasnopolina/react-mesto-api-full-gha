@@ -28,7 +28,18 @@ app.options(
   cors({
     origin: '*',
     methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
-    allowedHeaders: ['Content-type', 'Authorization', 'Accept'],
+    allowedHeaders: ['Content-type', 'Authorization'],
+    credentials: true,
+    preflightContinue: false,
+    optionsSuccessStatus: 204,
+  }),
+);
+
+app.use(
+  cors({
+    origin: '*',
+    methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
+    allowedHeaders: ['Content-type', 'Authorization'],
     credentials: true,
     preflightContinue: false,
     optionsSuccessStatus: 204,

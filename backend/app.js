@@ -21,22 +21,36 @@ mongoose.connect('mongodb://127.0.0.1:27017/mestodb', {
   // useFindAndModify: false,
 });
 
-const corsOptions = {
-  origin: true,
-  methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
-  allowedHeaders: ['Content-type', 'Authorization'],
-  credentials: true,
-  preflightContinue: false,
-  optionsSuccessStatus: 204,
-};
+// const corsOptions = {
+//   origin: true,
+//   methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
+//   allowedHeaders: ['Content-type', 'Authorization'],
+//   credentials: true,
+//   preflightContinue: false,
+//   optionsSuccessStatus: 204,
+// };
 
 app.options(
   '*',
-  cors(corsOptions),
+  cors({
+    origin: '*',
+    methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
+    allowedHeaders: ['Content-type', 'Authorization'],
+    credentials: true,
+    // preflightContinue: false,
+    optionsSuccessStatus: 204,
+  }),
 );
 
 app.use(
-  cors(corsOptions),
+  cors({
+    origin: '*',
+    methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
+    allowedHeaders: ['Content-type', 'Authorization'],
+    credentials: true,
+    // preflightContinue: false,
+    optionsSuccessStatus: 204,
+  }),
 );
 
 app.use(requestLogger);

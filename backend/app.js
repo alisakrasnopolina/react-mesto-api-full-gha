@@ -22,7 +22,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/mestodb', {
 });
 
 const corsOptions = {
-  origin: '*',
+  origin: true,
   methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
   allowedHeaders: ['Content-type', 'Authorization'],
   credentials: true,

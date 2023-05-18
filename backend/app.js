@@ -21,6 +21,18 @@ mongoose.connect('mongodb://127.0.0.1:27017/mestodb', {
   // useFindAndModify: false,
 });
 
+const allowList = ['https://api.mesto.alisa.nomoredomains.monster',
+  'http://api.mesto.alisa.nomoredomains.monster',
+  'http://api.mesto.alisa.nomoredomains.monster/signin',
+  'http://api.mesto.alisa.nomoredomains.monster/signup',
+  'http://api.mesto.alisa.nomoredomains.monster/users/me',
+  'http://api.mesto.alisa.nomoredomains.monster/users',
+  'http://api.mesto.alisa.nomoredomains.monster/users/avatar',
+  'http://api.mesto.alisa.nomoredomains.monster/cards',
+  'http://api.mesto.alisa.nomoredomains.monster/cards/:cardId/likes',
+  'http://api.mesto.alisa.nomoredomains.monster/cards/:cardId',
+];
+
 // const corsOptions = {
 //   origin: true,
 //   methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
@@ -33,24 +45,22 @@ mongoose.connect('mongodb://127.0.0.1:27017/mestodb', {
 app.options(
   '*',
   cors({
-    origin: '*',
+    origin: allowList,
     methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
     allowedHeaders: ['Content-type', 'Authorization'],
     credentials: true,
     exposedHeaders: ['set-cookie'],
-    preflightContinue: false,
     optionsSuccessStatus: 204,
   }),
 );
 
 app.use(
   cors({
-    origin: '*',
+    origin: allowList,
     methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
     allowedHeaders: ['Content-type', 'Authorization'],
     credentials: true,
     exposedHeaders: ['set-cookie'],
-    preflightContinue: false,
     optionsSuccessStatus: 204,
   }),
 );

@@ -21,29 +21,22 @@ mongoose.connect('mongodb://127.0.0.1:27017/mestodb', {
   // useFindAndModify: false,
 });
 
-// const allowlist = ['https://mesto.alisakrasnopolina.nomoredomains.monster', 'https://mesto.alisakrasnopolina.nomoredomains.monster/*'];
+const corsOptions = {
+  origin: '*',
+  methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
+  allowedHeaders: ['Content-type', 'Authorization'],
+  credentials: true,
+  preflightContinue: false,
+  optionsSuccessStatus: 204,
+};
 
 app.options(
   '*',
-  cors({
-    origin: '*',
-    methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
-    allowedHeaders: ['Content-type', 'Authorization'],
-    credentials: true,
-    preflightContinue: false,
-    optionsSuccessStatus: 204,
-  }),
+  cors(corsOptions),
 );
 
 app.use(
-  cors({
-    origin: '*',
-    methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
-    allowedHeaders: ['Content-type', 'Authorization'],
-    credentials: true,
-    preflightContinue: false,
-    optionsSuccessStatus: 204,
-  }),
+  cors(corsOptions),
 );
 
 app.use(requestLogger);

@@ -150,7 +150,6 @@ function App(props) {
   function handleLogin(email, password) {
     Auth.authorization(email, password)
       .then((data) => {
-        console.log(data, 'wtf');
         const userData = {
           email: email
         }

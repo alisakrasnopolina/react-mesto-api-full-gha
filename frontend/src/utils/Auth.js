@@ -38,8 +38,7 @@ export const authorization = (email, password) => {
     body: JSON.stringify({
       email: email,
       password: password
-    }),
-    credentials: 'include'
+    })
   })
   .then((res) => getResponse(res))
   .then((data) => {

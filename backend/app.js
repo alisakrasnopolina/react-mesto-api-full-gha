@@ -37,7 +37,8 @@ app.options(
     methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
     allowedHeaders: ['Content-type', 'Authorization'],
     credentials: true,
-    // preflightContinue: false,
+    exposedHeaders: ['set-cookie'],
+    preflightContinue: false,
     optionsSuccessStatus: 204,
   }),
 );
@@ -48,7 +49,8 @@ app.use(
     methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
     allowedHeaders: ['Content-type', 'Authorization'],
     credentials: true,
-    // preflightContinue: false,
+    exposedHeaders: ['set-cookie'],
+    preflightContinue: false,
     optionsSuccessStatus: 204,
   }),
 );

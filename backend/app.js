@@ -31,6 +31,15 @@ const allowList = ['https://api.mesto.alisa.nomoredomains.monster',
   'http://api.mesto.alisa.nomoredomains.monster/cards',
   'http://api.mesto.alisa.nomoredomains.monster/cards/:cardId/likes',
   'http://api.mesto.alisa.nomoredomains.monster/cards/:cardId',
+  'https://api.mesto.alisa.nomoredomains.monster',
+  'https://api.mesto.alisa.nomoredomains.monster/signin',
+  'https://api.mesto.alisa.nomoredomains.monster/signup',
+  'https://api.mesto.alisa.nomoredomains.monster/users/me',
+  'https://api.mesto.alisa.nomoredomains.monster/users',
+  'https://api.mesto.alisa.nomoredomains.monster/users/avatar',
+  'https://api.mesto.alisa.nomoredomains.monster/cards',
+  'https://api.mesto.alisa.nomoredomains.monster/cards/:cardId/likes',
+  'https://api.mesto.alisa.nomoredomains.monster/cards/:cardId',
 ];
 
 // const corsOptions = {

@@ -29,15 +29,6 @@ const allowList = [
   'http://localhost:3000',
 ];
 
-// const corsOptions = {
-//   origin: true,
-//   methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
-//   allowedHeaders: ['Content-type', 'Authorization'],
-//   credentials: true,
-//   preflightContinue: false,
-//   optionsSuccessStatus: 204,
-// };
-
 app.options(
   '*',
   cors({

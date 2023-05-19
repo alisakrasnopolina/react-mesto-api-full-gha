@@ -8,7 +8,7 @@
 
 ## Ссылки на проект
 
-IP-адрес IP 51.250.0.138
+IP 51.250.0.138
 
 Frontend https://mesto.alisakrasnopolina.nomoredomains.monster
 

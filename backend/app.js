@@ -8,7 +8,7 @@ const { handleErrors } = require('./errors/erorrs');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const { DocumentNotFoundError } = mongoose.Error;
-const { PORT = 3001 } = process.env;
+const { PORT = 3000 } = process.env;
 const app = express();
 
 app.use(cookieParser());
@@ -42,7 +42,7 @@ app.options(
   cors({
     origin: allowList,
     methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
-    allowedHeaders: ['Content-type', 'Authorization'],
+    allowedHeaders: ['Content-type', 'Authorization', 'Accept'],
     credentials: true,
     exposedHeaders: ['set-cookie'],
     optionsSuccessStatus: 204,

@@ -34,7 +34,7 @@ function App(props) {
     if (loggedIn) {
       api.getInitialCards()
         .then((res) => {
-          setCards(res)
+          setCards(res.reverse())
         })
         .catch((err) => {console.log(err)}); 
       api.getProfile()

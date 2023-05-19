@@ -6,6 +6,7 @@ const { errors } = require('celebrate');
 const router = require('./routes/index');
 const { handleErrors } = require('./errors/erorrs');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
+require('dotenv').config();
 
 const { DocumentNotFoundError } = mongoose.Error;
 const { PORT = 3000 } = process.env;
@@ -22,8 +23,8 @@ mongoose.connect('mongodb://127.0.0.1:27017/mestodb', {
 });
 
 const allowList = [
-  'http://mesto.alisakrasnopolina.nomoredomains.monster',
   'https://mesto.alisakrasnopolina.nomoredomains.monster',
+  'http://mesto.alisakrasnopolina.nomoredomains.monster',
   'https://localhost:3000',
   'http://localhost:3000',
 ];
@@ -53,7 +54,7 @@ app.use(
   cors({
     origin: allowList,
     methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
-    allowedHeaders: ['Content-type', 'Authorization'],
+    allowedHeaders: ['Content-type', 'Authorization', 'Accept'],
     credentials: true,
     exposedHeaders: ['set-cookie'],
     optionsSuccessStatus: 204,
@@ -61,6 +62,12 @@ app.use(
 );
 
 app.use(requestLogger);
+
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
 
 app.use(router);
 

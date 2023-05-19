@@ -9,6 +9,8 @@ function getResponse(res) {
 
 export const BASE_URL = 'https://api.mesto.alisa.nomoredomains.monster';
 
+// export const BASE_URL = 'http://localhost:3001';
+
 export const register = (email, password) => {
   return fetch(`${BASE_URL}/signup`, {
     method: 'POST',
@@ -16,6 +18,7 @@ export const register = (email, password) => {
       'Accept': 'application/json',
       'Content-Type': 'application/json'
     },
+    credentials: 'include',
     body: JSON.stringify({
       email: email,
       password: password
@@ -48,15 +51,15 @@ export const authorization = (email, password) => {
   })
 }; 
 
-export const getContent = () => {
+export const getContent = (token) => {
   return fetch(`${BASE_URL}/users/me`, {
     method: 'GET',
+    credentials: 'include',
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
       // 'Authorization': `Bearer ${token}`,
-    },
-    credentials: 'include'
+    }
   })
   .then((res) => getResponse(res))
   .then(data => data)

@@ -6,14 +6,14 @@ const STATUS_CREATED = 201;
 
 module.exports.getUsers = (req, res, next) => {
   User.find({})
-    .then((user) => res.send({ data: user }))
+    .then((user) => res.send(user))
     .catch(next);
 };
 
 function getUserWithId(req, res, next, id) {
   User.findById(id)
     .orFail()
-    .then((user) => res.send({ data: user }))
+    .then((user) => res.send(user))
     .catch(next);
 }
 
@@ -36,14 +36,14 @@ module.exports.createUser = (req, res, next) => {
       about,
       avatar,
     }))
-    .then((user) => res.status(STATUS_CREATED).send({ data: user }))
+    .then((user) => res.status(STATUS_CREATED).send(user))
     .catch(next);
 };
 
 function update(req, res, next, { name, about, avatar }) {
   User.findByIdAndUpdate(req.user._id, { name, about, avatar }, { new: true, runValidators: true })
     .orFail()
-    .then((user) => res.send({ data: user }))
+    .then((user) => res.send(user))
     .catch(next);
 }
 

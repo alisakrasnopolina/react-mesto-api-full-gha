@@ -121,10 +121,10 @@ function App(props) {
   const tokenCheck = () => {
     const token = localStorage.getItem('Authorized');
     if (token) {
-      Auth.getContent()
+      Auth.getContent(token)
         .then((res) => {
           if (res) {
-            setUserEmail(res.data)
+            setUserEmail(res)
             setLoggedIn(true);
             navigate("/", {replace: true})
           }

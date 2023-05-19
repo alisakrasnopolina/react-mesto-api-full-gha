@@ -8,7 +8,7 @@ const { handleErrors } = require('./errors/erorrs');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const { DocumentNotFoundError } = mongoose.Error;
-const { PORT = 3000 } = process.env;
+const { PORT = 3001 } = process.env;
 const app = express();
 
 app.use(cookieParser());
@@ -21,25 +21,11 @@ mongoose.connect('mongodb://127.0.0.1:27017/mestodb', {
   // useFindAndModify: false,
 });
 
-const allowList = ['http://mesto.alisakrasnopolina.nomoredomains.monster',
+const allowList = [
   'http://mesto.alisakrasnopolina.nomoredomains.monster',
-  'http://mesto.alisakrasnopolina.nomoredomains.monster/signin',
-  'http://mesto.alisakrasnopolina.nomoredomains.monster/signup',
-  'http://mesto.alisakrasnopolina.nomoredomains.monster/users/me',
-  'http://mesto.alisakrasnopolina.nomoredomains.monster/users',
-  'http://mesto.alisakrasnopolina.nomoredomains.monster/users/avatar',
-  'http://mesto.alisakrasnopolina.nomoredomains.monster/cards',
-  'http://mesto.alisakrasnopolina.nomoredomains.monster/cards/:cardId/likes',
-  'http://mesto.alisakrasnopolina.nomoredomains.monster/cards/:cardId',
   'https://mesto.alisakrasnopolina.nomoredomains.monster',
-  'https://mesto.alisakrasnopolina.nomoredomains.monster/signin',
-  'https://mesto.alisakrasnopolina.nomoredomains.monster/signup',
-  'https://mesto.alisakrasnopolina.nomoredomains.monster/users/me',
-  'https://mesto.alisakrasnopolina.nomoredomains.monster/users',
-  'https://mesto.alisakrasnopolina.nomoredomains.monster/users/avatar',
-  'https://mesto.alisakrasnopolina.nomoredomains.monster/cards',
-  'https://mesto.alisakrasnopolina.nomoredomains.monster/cards/:cardId/likes',
-  'https://mesto.alisakrasnopolina.nomoredomains.monster/cards/:cardId',
+  'https://localhost:3000',
+  'http://localhost:3000',
 ];
 
 // const corsOptions = {

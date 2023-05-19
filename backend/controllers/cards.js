@@ -8,7 +8,7 @@ const ForbiddenError = require('../errors/forbidden_error');
 module.exports.getCards = (req, res, next) => {
   Card.find({})
     .populate(['owner', 'likes'])
-    .then((card) => res.send({ data: card }))
+    .then((card) => res.send(card))
     .catch(next);
 };
 
@@ -18,7 +18,7 @@ module.exports.createCard = (req, res, next) => {
 
   Card.create({ name, link, owner: ownerId })
     .then((card) => card.populate('owner'))
-    .then((card) => res.status(STATUS_CREATED).send({ data: card }))
+    .then((card) => res.status(STATUS_CREATED).send(card))
     .catch(next);
 };
 
@@ -32,7 +32,7 @@ module.exports.deleteCardById = (req, res, next) => {
         Card.deleteOne()
           .orFail()
           .populate(['owner', 'likes'])
-          .then(res.send({ data: card }))
+          .then(res.send(card))
           .catch(next);
       } else {
         next(new ForbiddenError('Доступ запрещён.'));
@@ -49,7 +49,7 @@ function likes(req, res, next, method) {
   )
     .orFail()
     .populate(['owner', 'likes'])
-    .then((card) => res.send({ data: card }))
+    .then((card) => res.send(card))
     .catch(next);
 }
 

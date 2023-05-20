@@ -24,14 +24,14 @@ module.exports.createCard = (req, res, next) => {
 
 module.exports.deleteCardById = (req, res, next) => {
   Card.findById(req.params.cardId)
+    .orFail()
+    .populate(['owner', 'likes'])
     .then((card) => {
       if (!card) {
         throw new DocumentNotFoundError();
       }
       if (req.user._id === card.owner._id.toString()) {
-        Card.deleteOne()
-          .orFail()
-          .populate(['owner', 'likes'])
+        card.deleteOne()
           .then(res.send(card))
           .catch(next);
       } else {

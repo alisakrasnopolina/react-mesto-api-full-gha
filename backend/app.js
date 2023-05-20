@@ -9,7 +9,7 @@ const { requestLogger, errorLogger } = require('./middlewares/logger');
 require('dotenv').config();
 
 const { DocumentNotFoundError } = mongoose.Error;
-const { PORT = 3000 } = process.env;
+const { PORT = 3001 } = process.env;
 const app = express();
 
 app.use(cookieParser());
@@ -62,13 +62,13 @@ app.get('/crash-test', () => {
 
 app.use(router);
 
-app.use(errorLogger);
-
-app.use(errors());
-
 app.use('*', (req, res, next) => {
   next(new DocumentNotFoundError());
 });
+
+app.use(errorLogger);
+
+app.use(errors());
 
 app.use((err, req, res, next) => {
   handleErrors(err, res);

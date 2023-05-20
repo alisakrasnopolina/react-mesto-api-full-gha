@@ -4,7 +4,7 @@ const routerUsers = require('./users');
 const routerCards = require('./cards');
 const { login, createUser } = require('../controllers/users');
 const auth = require('../middlewares/auth');
-const regex = require('../utils/constants');
+const REGEX_URL = require('../utils/constants');
 
 router.post('/signup', celebrate({
   body: Joi.object().keys({
@@ -12,7 +12,7 @@ router.post('/signup', celebrate({
     password: Joi.string().required(),
     name: Joi.string().min(2).max(30),
     about: Joi.string().min(2).max(30),
-    avatar: Joi.string().pattern(regex),
+    avatar: Joi.string().pattern(REGEX_URL),
   }),
 }), createUser);
 router.post('/signin', celebrate({

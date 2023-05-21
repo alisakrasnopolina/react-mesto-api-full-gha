@@ -26,4 +26,4 @@ const handleErrors = (err, res) => {
   return res.status(STATUS_INTERNAL_SERVER_ERROR).send({ message: 'На сервере произошла ошибка!' });
 };
 
-module.exports = { handleErrors, UnauthorizedError };
+module.exports = { handleErrors };

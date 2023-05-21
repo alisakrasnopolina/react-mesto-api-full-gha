@@ -11,6 +11,7 @@ const ForbiddenError = require('./forbidden_error');
 const UnauthorizedError = require('./unauthorized_error');
 
 const handleErrors = (err, res) => {
+  console.log(err);
   if (err instanceof DocumentNotFoundError) {
     return res.status(STATUS_NOT_FOUND).send({ message: 'Данные не найдены!' });
   }
